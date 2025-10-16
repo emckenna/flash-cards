@@ -1,5 +1,11 @@
 [
   {
+    "id": "design_patterns",
+    "name": "Design Patterns for Job Interviews",
+    "description": "Learn Design Patterns for Job Interviews",
+    "file": "design_patterns.md"
+  },
+  {
     "id": "solid",
     "name": "SOLID Principles",
     "description": "Learn SOLID Principles",

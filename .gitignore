@@ -34,3 +34,6 @@ dist-ssr
 # Build output
 build
 .cache
+
+# Auto-synced content (source is in flashcard-topics/)
+public/flashcard-topics

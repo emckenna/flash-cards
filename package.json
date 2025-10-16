@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npm run sync-topics && vite",
+    "build": "npm run sync-topics && vite build",
     "preview": "vite preview",
     "generate-decks": "node scripts/generate-decks.js",
-    "validate-decks": "node scripts/validate-decks.js"
+    "validate-decks": "node scripts/validate-decks.js",
+    "sync-topics": "mkdir -p public && cp -r flashcard-topics public/"
   },
   "keywords": [],
   "author": "",
