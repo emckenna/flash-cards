@@ -1,0 +1,152 @@
+.landing-page {
+  width: 100%;
+  max-width: 1200px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.landing-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.landing-title {
+  color: white;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.landing-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.landing-main {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.decks-heading {
+  color: #667eea;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.decks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.deck-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.deck-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.deck-card:hover::before {
+  transform: scaleX(1);
+}
+
+.deck-card:hover {
+  transform: translateY(-4px);
+  border-color: #667eea;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+.deck-card-title {
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.deck-card-description {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.deck-card-arrow {
+  color: #667eea;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+.deck-card:hover .deck-card-arrow {
+  transform: translateX(5px);
+}
+
+.no-decks {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.no-decks p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.no-decks-help {
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.no-decks code {
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 2.5rem;
+  }
+
+  .landing-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .landing-main {
+    padding: 25px;
+  }
+
+  .decks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deck-card {
+    padding: 25px;
+  }
+}
