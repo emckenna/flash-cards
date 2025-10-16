@@ -22,13 +22,13 @@ function App() {
   useEffect(() => {
     const loadAvailableDecks = async () => {
       try {
-        const response = await fetch('/flashcard-topics/decks.json')
+        const response = await fetch('./flashcard-topics/decks.json')
         const decksData = await response.json()
 
         // Add the full path to each deck's file
         const decksWithPaths = decksData.map(deck => ({
           ...deck,
-          file: `/flashcard-topics/${deck.file}`
+          file: `./flashcard-topics/${deck.file}`
         }))
 
         setDecks(decksWithPaths)

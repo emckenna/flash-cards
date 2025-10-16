@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "generate-decks": "node scripts/generate-decks.js",
     "validate-decks": "node scripts/validate-decks.js",
-    "sync-topics": "mkdir -p public && cp -r flashcard-topics public/"
+    "sync-topics": "node scripts/sync-topics.js"
   },
   "keywords": [],
   "author": "",
