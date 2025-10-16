@@ -127,6 +127,56 @@ npm run build
 
 The built files will be in the `dist/` directory.
 
+## Contributing
+
+Want to contribute your own flashcard topics? We'd love to have them! Here's how:
+
+### Option 1: Submit via Pull Request
+
+1. **Fork this repository**
+2. **Clone your fork**:
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/flash-cards.git
+   cd flash-cards
+   npm install
+   ```
+3. **Create a new branch**:
+   ```bash
+   git checkout -b add-topic-name
+   ```
+4. **Add your flashcard topic**:
+   - Create a new `.md` file in `flashcard-topics/` (e.g., `design-patterns.md`)
+   - Start with `# Your Topic Name` as the first line
+   - Follow the Q&A format (see [flashcard-topics/README.md](flashcard-topics/README.md))
+5. **Test locally**:
+   ```bash
+   npm run generate-decks
+   npm run dev
+   ```
+6. **Commit your changes**:
+   ```bash
+   git add flashcard-topics/your-topic.md
+   git commit -m "Add [Topic Name] flashcards"
+   git push origin add-topic-name
+   ```
+7. **Open a Pull Request** on GitHub
+
+### Option 2: Submit via Issue
+
+If you're not comfortable with Git:
+1. Create a [new issue](https://github.com/emckenna/flash-cards/issues/new)
+2. Title it: "New Topic: [Your Topic Name]"
+3. Paste your flashcard content in markdown format
+4. We'll review and add it for you!
+
+### Contribution Guidelines
+
+- **Quality**: Cards should be accurate and educational
+- **Format**: Follow the Q&A markdown format
+- **Scope**: Keep topics focused (e.g., "React Hooks" not "All of React")
+- **Original Content**: Ensure your content is your own or properly attributed
+- **Clear Questions**: Questions should be clear and unambiguous
+
 ## License
 
 MIT - Feel free to use for your own learning!
