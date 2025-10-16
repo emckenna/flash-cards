@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "generate-decks": "node scripts/generate-decks.js"
+    "generate-decks": "node scripts/generate-decks.js",
+    "validate-decks": "node scripts/validate-decks.js"
   },
   "keywords": [],
   "author": "",

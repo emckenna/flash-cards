@@ -20,6 +20,12 @@ A beautiful, reusable flashcard app for learning any topic. Built with React and
 # Install dependencies
 npm install
 
+# Validate flashcard format (optional but recommended)
+npm run validate-decks
+
+# Generate decks manifest from markdown files
+npm run generate-decks
+
 # Start development server
 npm run dev
 
@@ -148,10 +154,11 @@ Want to contribute your own flashcard topics? We'd love to have them! Here's how
    - Create a new `.md` file in `flashcard-topics/` (e.g., `design-patterns.md`)
    - Start with `# Your Topic Name` as the first line
    - Follow the Q&A format (see [flashcard-topics/README.md](flashcard-topics/README.md))
-5. **Test locally**:
+5. **Validate and test locally**:
    ```bash
-   npm run generate-decks
-   npm run dev
+   npm run validate-decks  # Check format is correct
+   npm run generate-decks  # Generate decks.json
+   npm run dev             # Test in browser
    ```
 6. **Commit your changes**:
    ```bash
