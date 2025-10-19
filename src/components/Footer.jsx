@@ -5,7 +5,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <p className="footer-text">
-          Built with React + Vite | Made with ❤️ for learning
+          Built with React + Vite + <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="claude-link">Claude</a>
         </p>
         <div className="footer-links">
           <a
