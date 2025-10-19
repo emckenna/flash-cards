@@ -5,7 +5,6 @@ import Footer from './components/Footer'
 import AboutModal from './components/AboutModal'
 import FlashCard from './components/FlashCard'
 import CardNavigation from './components/CardNavigation'
-import DeckSelector from './components/DeckSelector'
 import { parseMarkdownFlashcards } from './utils/markdownParser'
 import './App.css'
 
@@ -132,11 +131,6 @@ function App() {
       <div className="app" style={{ paddingTop: '80px' }}>
         <header className="app-header">
           <h1>{currentDeck?.name} - Flash Cards</h1>
-          <DeckSelector
-            decks={decks}
-            currentDeck={currentDeck}
-            onSelectDeck={loadDeck}
-          />
         </header>
 
         <main className="app-main">
