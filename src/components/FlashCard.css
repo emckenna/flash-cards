@@ -69,6 +69,30 @@
   word-wrap: break-word;
 }
 
+/* Style images in flashcards */
+.flashcard-text img {
+  max-width: 100%;
+  height: auto;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard-back .flashcard-text img {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Style lists in markdown */
+.flashcard-text ul {
+  text-align: left;
+  margin: 10px auto;
+  max-width: 90%;
+}
+
+.flashcard-text li {
+  margin: 5px 0;
+}
+
 .flashcard-hint {
   font-size: 0.85rem;
   opacity: 0.6;

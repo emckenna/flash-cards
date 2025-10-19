@@ -1,18 +1,12 @@
-import './AboutModal.css'
+import './AboutPage.css'
 
-function AboutModal({ isOpen, onClose }) {
-  if (!isOpen) return null
-
+function AboutPage() {
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>
-          ✕
-        </button>
+    <div className="about-page">
+      <div className="about-content">
+        <h1 className="about-title">About Flash Cards</h1>
 
-        <h1 className="modal-title">About Flash Cards</h1>
-
-        <div className="modal-body">
+        <div className="about-body">
           <section className="about-section">
             <h2>What is this?</h2>
             <p>
@@ -118,4 +112,4 @@ function AboutModal({ isOpen, onClose }) {
   )
 }
 
-export default AboutModal
+export default AboutPage

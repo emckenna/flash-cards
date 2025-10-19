@@ -1,5 +1,11 @@
 [
   {
+    "id": "big-o-notation",
+    "name": "Big O Notation",
+    "description": "Learn Big O Notation",
+    "file": "big-o-notation.md"
+  },
+  {
     "id": "design_patterns",
     "name": "Design Patterns for Job Interviews",
     "description": "Learn Design Patterns for Job Interviews",

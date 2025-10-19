@@ -1,20 +1,21 @@
+import { Link } from 'react-router-dom'
 import './Navigation.css'
 
-function Navigation({ onNavigateHome, onShowAbout, showHomeButton }) {
+function Navigation({ showHomeButton, onNavigateHome }) {
   return (
     <nav className="navigation">
       <div className="nav-content">
         <div className="nav-left">
           {showHomeButton && (
-            <button className="nav-button" onClick={onNavigateHome}>
+            <Link to="/" className="nav-button" onClick={onNavigateHome}>
               ← Back to Topics
-            </button>
+            </Link>
           )}
         </div>
         <div className="nav-right">
-          <button className="nav-button" onClick={onShowAbout}>
+          <Link to="/about" className="nav-button">
             About
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LandingPage from './components/LandingPage'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
-import AboutModal from './components/AboutModal'
+import AboutPage from './components/AboutPage'
 import FlashCard from './components/FlashCard'
 import CardNavigation from './components/CardNavigation'
 import { parseMarkdownFlashcards } from './utils/markdownParser'
@@ -12,9 +13,9 @@ function App() {
   const [decks, setDecks] = useState([])
   const [currentDeck, setCurrentDeck] = useState(null)
   const [cards, setCards] = useState([])
+  const [originalCards, setOriginalCards] = useState([])
   const [currentCardIndex, setCurrentCardIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
-  const [showAbout, setShowAbout] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
 
   // Load available decks on mount
@@ -47,6 +48,7 @@ function App() {
       const markdown = await response.text()
       const parsedCards = parseMarkdownFlashcards(markdown)
       setCards(parsedCards)
+      setOriginalCards(parsedCards)
       setCurrentDeck(deck)
       setCurrentCardIndex(0)
       setIsFlipped(false)
@@ -81,6 +83,7 @@ function App() {
   }
 
   const handleReset = () => {
+    setCards(originalCards)
     setCurrentCardIndex(0)
     setIsFlipped(false)
   }
@@ -88,6 +91,7 @@ function App() {
   const handleNavigateHome = () => {
     setCurrentDeck(null)
     setCards([])
+    setOriginalCards([])
   }
 
   const handleSelectDeck = (deck) => {
@@ -96,71 +100,76 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="app">
-        <div className="loading">Loading flashcards...</div>
-      </div>
-    )
-  }
-
-  // Show landing page if no deck is selected
-  if (!currentDeck) {
-    return (
-      <>
-        <Navigation
-          onNavigateHome={handleNavigateHome}
-          onShowAbout={() => setShowAbout(true)}
-          showHomeButton={false}
-        />
-        <div className="app" style={{ paddingTop: '60px' }}>
-          <LandingPage decks={decks} onSelectDeck={handleSelectDeck} />
-          <Footer />
+      <Router basename="/flash-cards">
+        <div className="app">
+          <div className="loading">Loading flashcards...</div>
         </div>
-        <AboutModal isOpen={showAbout} onClose={() => setShowAbout(false)} />
-      </>
+      </Router>
     )
   }
 
-  // Show flashcard view if deck is selected
   return (
-    <>
-      <Navigation
-        onNavigateHome={handleNavigateHome}
-        onShowAbout={() => setShowAbout(true)}
-        showHomeButton={true}
-      />
-      <div className="app" style={{ paddingTop: '60px' }}>
-        <header className="app-header">
-          <h1>{currentDeck?.name}</h1>
-          <div className="deck-actions">
-            <button className="deck-action-button" onClick={handleReset} title="Reset to first card">
-              ⟲
-            </button>
-            <button className="deck-action-button" onClick={handleShuffle} title="Shuffle cards">
-              ⤨
-            </button>
-          </div>
-        </header>
+    <Router basename="/flash-cards">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Navigation showHomeButton={!!currentDeck} onNavigateHome={handleNavigateHome} />
+              <div className="app" style={{ paddingTop: '60px' }}>
+                {!currentDeck ? (
+                  <LandingPage decks={decks} onSelectDeck={handleSelectDeck} />
+                ) : (
+                  <>
+                    <header className="app-header">
+                      <h1>{currentDeck?.name}</h1>
+                      <div className="deck-actions">
+                        <button className="deck-action-button" onClick={handleReset} title="Reset to first card">
+                          ⟲
+                        </button>
+                        <button className="deck-action-button" onClick={handleShuffle} title="Shuffle cards">
+                          ⤨
+                        </button>
+                      </div>
+                    </header>
 
-        <main className="app-main">
-          <FlashCard
-            card={cards[currentCardIndex]}
-            isFlipped={isFlipped}
-            onFlip={handleFlip}
-          />
+                    <main className="app-main">
+                      <FlashCard
+                        card={cards[currentCardIndex]}
+                        isFlipped={isFlipped}
+                        onFlip={handleFlip}
+                      />
 
-          <CardNavigation
-            currentIndex={currentCardIndex}
-            totalCards={cards.length}
-            onNext={handleNext}
-            onPrevious={handlePrevious}
-            canGoNext={currentCardIndex < cards.length - 1}
-            canGoPrevious={currentCardIndex > 0}
-          />
-        </main>
-        <Footer />
-      </div>
-      <AboutModal isOpen={showAbout} onClose={() => setShowAbout(false)} />
-    </>
+                      <CardNavigation
+                        currentIndex={currentCardIndex}
+                        totalCards={cards.length}
+                        onNext={handleNext}
+                        onPrevious={handlePrevious}
+                        canGoNext={currentCardIndex < cards.length - 1}
+                        canGoPrevious={currentCardIndex > 0}
+                      />
+                    </main>
+                  </>
+                )}
+                <Footer />
+              </div>
+            </>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <>
+              <Navigation showHomeButton={true} />
+              <div className="app" style={{ paddingTop: '60px' }}>
+                <AboutPage />
+                <Footer />
+              </div>
+            </>
+          }
+        />
+      </Routes>
+    </Router>
   )
 }
 
