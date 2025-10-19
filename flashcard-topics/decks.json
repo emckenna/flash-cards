@@ -1,9 +1,15 @@
 [
   {
-    "id": "big-o-notation",
-    "name": "Big O Notation",
-    "description": "Learn Big O Notation",
-    "file": "big-o-notation.md"
+    "id": "big-o-advanced",
+    "name": "Big O Notation - Advanced",
+    "description": "Learn Big O Notation - Advanced",
+    "file": "big-o-advanced.md"
+  },
+  {
+    "id": "big-o-beginner",
+    "name": "Big O Notation - Beginner",
+    "description": "Learn Big O Notation - Beginner",
+    "file": "big-o-beginner.md"
   },
   {
     "id": "design_patterns",
