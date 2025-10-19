@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import Markdown from 'react-markdown'
 import './FlashCard.css'
 
 function FlashCard({ card, isFlipped, onFlip }) {
@@ -10,7 +10,9 @@ function FlashCard({ card, isFlipped, onFlip }) {
             {card.category && (
               <div className="flashcard-category">{card.category}</div>
             )}
-            <div className="flashcard-text">{card.question}</div>
+            <div className="flashcard-text">
+              <Markdown>{card.question}</Markdown>
+            </div>
             <div className="flashcard-hint">Click to reveal answer</div>
           </div>
         </div>
@@ -19,7 +21,9 @@ function FlashCard({ card, isFlipped, onFlip }) {
             {card.category && (
               <div className="flashcard-category">{card.category}</div>
             )}
-            <div className="flashcard-text">{card.answer}</div>
+            <div className="flashcard-text">
+              <Markdown>{card.answer}</Markdown>
+            </div>
             <div className="flashcard-hint">Click to see question</div>
           </div>
         </div>
