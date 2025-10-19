@@ -93,6 +93,45 @@
   margin: 5px 0;
 }
 
+/* Style code blocks for ASCII diagrams */
+.flashcard-text pre {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  text-align: left;
+  margin: 15px auto;
+  max-width: 90%;
+}
+
+.flashcard-back .flashcard-text pre {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.flashcard-text code {
+  font-family: 'Courier New', Consolas, Monaco, monospace;
+  font-size: 0.9em;
+  white-space: pre;
+}
+
+.flashcard-text pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* Inline code */
+.flashcard-text p code {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: normal;
+}
+
+.flashcard-back .flashcard-text p code {
+  background: rgba(255, 255, 255, 0.15);
+}
+
 .flashcard-hint {
   font-size: 0.85rem;
   opacity: 0.6;

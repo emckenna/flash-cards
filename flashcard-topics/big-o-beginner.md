@@ -30,18 +30,18 @@
 
 ### Card 4
 **Q:** What are the most common Big O complexities from fastest to slowest?
-**A:**
-```
-O(1)        ←  Constant (best!)
-O(log n)    ←  Logarithmic
-O(n)        ←  Linear
-O(n log n)  ←  Linearithmic
-O(n²)       ←  Quadratic
-O(2ⁿ)       ←  Exponential
-O(n!)       ←  Factorial (worst!)
-```
+**A:** From fastest to slowest:
+- **O(1)** - Constant
+- **O(log n)** - Logarithmic
+- **O(n)** - Linear
+- **O(n log n)** - Linearithmic
+- **O(n²)** - Quadratic
+- **O(2ⁿ)** - Exponential
+- **O(n!)** - Factorial
 
 **Rule:** Aim for O(1), O(log n), or O(n) when possible.
+
+*💡 Add a complexity comparison chart here: `![Big O Complexity Chart](/images/big-o-comparison.png)`*
 
 ## O(1) - Constant Time ⚡
 
@@ -56,16 +56,6 @@ O(n!)       ←  Factorial (worst!)
 - "Single operation"
 
 **Visual:**
-```
-Time
-  ↑
-  |  _______________
-  | |
-  |_|________________
-    1  10  100  1000  (input size)
-
-  Runtime stays flat!
-```
 
 ### Card 2
 **Q:** Give 3 examples of O(1) operations
@@ -104,18 +94,6 @@ Use:
 ### Card 2
 **Q:** Visualize O(log n) growth
 **A:**
-```
-Time
-  ↑
-  |         ___
-  |     ___/
-  |   _/
-  | _/
-  |/_________________
-    1  10  100  1000  (input size)
-
-  Grows very slowly!
-```
 
 **Doubling input only adds ONE more step.**
 
@@ -123,15 +101,6 @@ Time
 **Q:** How does binary search achieve O(log n)?
 **A:** **Each comparison eliminates half the data**
 
-```
-[1 2 3 4 5 6 7 8]  Find 6
-     ↓
-  Check 4: too small
-
-      [5 6 7 8]
-         ↓
-      Check 6: found!
-```
 
 **Math:** 1000 items → log₂(1000) ≈ 10 comparisons
 
@@ -165,19 +134,6 @@ Time
 ### Card 2
 **Q:** Visualize O(n) growth
 **A:**
-```
-Time
-  ↑
-  |              /
-  |            /
-  |          /
-  |        /
-  |      /
-  |____/____________
-    1  10  100  1000  (input size)
-
-  Straight line - proportional!
-```
 
 **Doubling input doubles time.**
 
@@ -192,15 +148,6 @@ We drop constants:
 
 **BUT:** Nested loops are O(n²)!
 
-```
-for i in arr:      ← O(n)
-for j in arr:      ← O(n)
-# Total: O(n)
-
-for i in arr:      ← O(n)
-  for j in arr:    ← O(n) NESTED
-  # Total: O(n²)
-```
 
 ### Card 4
 **Q:** Common O(n) operations
@@ -230,19 +177,6 @@ for i in arr:      ← O(n)
 ### Card 2
 **Q:** Visualize O(n log n) vs O(n²)
 **A:**
-```
-Time
-  ↑
-  |                 /← O(n²)
-  |               /
-  |             /
-  |        ___/← O(n log n)
-  |    ___/
-  |___/______________
-    10   100   1000  (input size)
-
-  Much better than O(n²)!
-```
 
 **1000 items:** O(n log n) ≈ 10K vs O(n²) = 1M operations
 
@@ -250,19 +184,6 @@ Time
 **Q:** Why is merge sort O(n log n)?
 **A:** **log n levels × n work per level**
 
-```
-[8 3 1 5 2 7 4 6]  ← n items
-    ↓ split
-[8 3 1 5][2 7 4 6]
-    ↓ split
-[8 3][1 5][2 7][4 6]  ← log n levels
-    ↓ merge (n work)
-[3 8][1 5][2 7][4 6]
-    ↓
-[1 3 5 8][2 4 6 7]
-    ↓
-[1 2 3 4 5 6 7 8]
-```
 
 ### Card 4
 **Q:** Strategy: When should you sort first?
@@ -291,19 +212,6 @@ Time
 ### Card 2
 **Q:** Visualize O(n²) growth
 **A:**
-```
-Time
-  ↑
-  |                  *← Shoots up!
-  |              *
-  |          *
-  |      *
-  |  *
-  |*_________________
-   10  20  30  40  (input size)
-
-  Grows VERY fast!
-```
 
 **Danger:** 100 items = 10K operations, 1000 items = 1M operations
 
@@ -312,20 +220,8 @@ Time
 **A:** **Problem:** Find if array has duplicates
 
 ❌ **O(n²) - Nested loops:**
-```
-for i in arr:
-  for j in arr:
-    if arr[i] == arr[j] and i != j:
-      return true
-```
 
 ✅ **O(n) - Use Set:**
-```
-seen = Set()
-for item in arr:
-  if item in seen: return true
-  seen.add(item)
-```
 
 **Strategy:** Replace inner loop with hash map!
 
@@ -348,14 +244,6 @@ for item in arr:
 **Q:** Pattern: Two pointers technique - what complexity?
 **A:** **O(n) - Both pointers move through array once**
 
-```
-[1, 2, 3, 4, 5, 6, 7]
- ↑                 ↑
-left             right
-
-Each step: one pointer moves
-Total moves: n steps
-```
 
 **Use for:** Sorted arrays, finding pairs, palindrome check
 
@@ -363,23 +251,11 @@ Total moves: n steps
 **Q:** Pattern: Sliding window - what complexity?
 **A:** **O(n) - Window slides once through array**
 
-```
-[1, 2, 3, 4, 5, 6, 7]
-[---]      ← window size k
-  [---]
-    [---]  ← slides right
-
-Each element enters and exits once
-```
 
 **Use for:** Subarrays, substrings, consecutive elements
 
 ### Card 3
 **Q:** What's the complexity of this code?
-```
-for i in range(n):
-  print(arr[i])
-```
 **A:** **O(n) - Single loop through n items**
 
 Each iteration does O(1) work (print)
@@ -387,11 +263,6 @@ Total: n × O(1) = O(n)
 
 ### Card 4
 **Q:** What's the complexity of this code?
-```
-for i in range(n):
-  for j in range(n):
-    print(arr[i], arr[j])
-```
 **A:** **O(n²) - Nested loops**
 
 Outer loop: n times
@@ -400,11 +271,6 @@ Total: n × n = O(n²)
 
 ### Card 5
 **Q:** What's the complexity of this code?
-```
-for i in range(n):
-  for j in range(i):
-    print(arr[i], arr[j])
-```
 **A:** **Still O(n²) - Drop the 1/2 constant**
 
 Work: 0 + 1 + 2 + ... + n = n(n+1)/2
@@ -429,11 +295,6 @@ Drop constants: O(n²)
 
 ### Card 7
 **Q:** How do you analyze this?
-```
-for i in range(n):     # ?
-  for j in range(m):   # ?
-    print(i, j)
-```
 **A:** **O(n × m) - Different sized inputs**
 
 If n ≠ m, keep both:
@@ -449,11 +310,6 @@ If they're equal, O(n²)
 **Space:** How much memory it uses
 
 **Example:**
-```
-sum = 0
-for i in arr:
-  sum += i
-```
 - Time: O(n) - loop through array
 - Space: O(1) - only one variable
 
@@ -462,15 +318,6 @@ for i in arr:
 ### Card 9
 **Q:** Best → Worst complexity ranking?
 **A:**
-```
-O(1)       Awesome! ⚡
-O(log n)   Great! 📉
-O(n)       Good ✅
-O(n log n) Acceptable 👍
-O(n²)      Slow 🐌
-O(2ⁿ)      Very slow! 🔥
-O(n!)      Terrible! 💀
-```
 
 **Goal:** Stay in the top 3 when possible!
 
@@ -479,19 +326,5 @@ O(n!)      Terrible! 💀
 **A:** **Use a hash map/set instead of nested loop**
 
 **Pattern:**
-```
-❌ O(n²):
-for i in arr:
-  for j in arr:
-    if condition(i, j):
-      ...
-
-✅ O(n):
-seen = {}
-for i in arr:
-  if complement in seen:
-    ...
-  seen[i] = true
-```
 
 **Key:** If you're searching in inner loop, use hash map!

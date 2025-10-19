@@ -11,7 +11,7 @@ function FlashCard({ card, isFlipped, onFlip }) {
               <div className="flashcard-category">{card.category}</div>
             )}
             <div className="flashcard-text">
-              <Markdown>{card.question}</Markdown>
+              <Markdown skipHtml={false}>{card.question}</Markdown>
             </div>
             <div className="flashcard-hint">Click to reveal answer</div>
           </div>
@@ -22,7 +22,7 @@ function FlashCard({ card, isFlipped, onFlip }) {
               <div className="flashcard-category">{card.category}</div>
             )}
             <div className="flashcard-text">
-              <Markdown>{card.answer}</Markdown>
+              <Markdown skipHtml={false}>{card.answer}</Markdown>
             </div>
             <div className="flashcard-hint">Click to see question</div>
           </div>
