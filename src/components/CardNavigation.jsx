@@ -5,8 +5,6 @@ function CardNavigation({
   totalCards,
   onNext,
   onPrevious,
-  onShuffle,
-  onReset,
   canGoNext,
   canGoPrevious
 }) {
@@ -23,7 +21,7 @@ function CardNavigation({
         />
       </div>
 
-      <div className="nav-controls">
+      <div className="nav-main-buttons">
         <button
           className="nav-button"
           onClick={onPrevious}
@@ -32,15 +30,6 @@ function CardNavigation({
         >
           ← Previous
         </button>
-
-        <div className="nav-actions">
-          <button className="action-button" onClick={onReset} title="Reset to first card">
-            ↻ Reset
-          </button>
-          <button className="action-button" onClick={onShuffle} title="Shuffle cards">
-            🔀 Shuffle
-          </button>
-        </div>
 
         <button
           className="nav-button"

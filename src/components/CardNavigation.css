@@ -28,14 +28,14 @@
   border-radius: 4px;
 }
 
-.nav-controls {
+.nav-main-buttons {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 15px;
+  width: 100%;
 }
 
 .nav-button {
+  flex: 1;
   padding: 12px 24px;
   font-size: 1rem;
   font-weight: 600;
@@ -64,6 +64,7 @@
 
 .nav-actions {
   display: flex;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -90,16 +91,7 @@
 }
 
 @media (max-width: 768px) {
-  .nav-controls {
-    flex-direction: column;
-  }
-
-  .nav-button {
-    width: 100%;
-  }
-
-  .nav-actions {
-    width: 100%;
-    justify-content: center;
+  .action-button {
+    flex: 1;
   }
 }

@@ -111,7 +111,7 @@ function App() {
           onShowAbout={() => setShowAbout(true)}
           showHomeButton={false}
         />
-        <div className="app" style={{ paddingTop: '80px' }}>
+        <div className="app" style={{ paddingTop: '60px' }}>
           <LandingPage decks={decks} onSelectDeck={handleSelectDeck} />
           <Footer />
         </div>
@@ -128,9 +128,17 @@ function App() {
         onShowAbout={() => setShowAbout(true)}
         showHomeButton={true}
       />
-      <div className="app" style={{ paddingTop: '80px' }}>
+      <div className="app" style={{ paddingTop: '60px' }}>
         <header className="app-header">
-          <h1>{currentDeck?.name} - Flash Cards</h1>
+          <h1>{currentDeck?.name}</h1>
+          <div className="deck-actions">
+            <button className="deck-action-button" onClick={handleReset} title="Reset to first card">
+              ⟲
+            </button>
+            <button className="deck-action-button" onClick={handleShuffle} title="Shuffle cards">
+              ⤨
+            </button>
+          </div>
         </header>
 
         <main className="app-main">
@@ -145,8 +153,6 @@ function App() {
             totalCards={cards.length}
             onNext={handleNext}
             onPrevious={handlePrevious}
-            onShuffle={handleShuffle}
-            onReset={handleReset}
             canGoNext={currentCardIndex < cards.length - 1}
             canGoPrevious={currentCardIndex > 0}
           />

@@ -17,14 +17,55 @@
 .app-header {
   text-align: center;
   margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .app-header h1 {
   color: white;
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.deck-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.deck-action-button {
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.deck-action-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.deck-action-button:active {
+  transform: translateY(0);
+}
+
+.deck-action-button:focus {
+  outline: none;
 }
 
 .app-main {
@@ -42,7 +83,18 @@
 }
 
 @media (max-width: 768px) {
+  .app-header {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
   .app-header h1 {
     font-size: 2rem;
+  }
+
+  .deck-action-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 }
