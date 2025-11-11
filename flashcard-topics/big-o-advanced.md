@@ -270,16 +270,4 @@ Where:
 
 ### Card 10
 **Q:** Recognizing optimization opportunities?
-**A:**
-**Ask yourself:**
-
-1. **Am I searching repeatedly?** → Hash map
-2. **Am I checking all pairs?** → Can I use hash map or sort first?
-3. **Is data sorted?** → Binary search or two pointers
-4. **Do I need all results?** → Can I short-circuit?
-5. **Am I recomputing?** → Memoization
-6. **Can I eliminate half?** → Binary search or divide & conquer
-7. **Is there a window/subarray?** → Sliding window
-8. **Do I need order?** → Maybe hash set is enough
-
-**Key:** Always ask "Can I do better?" before coding!
+**A:** **Ask yourself:** (1) Am I searching repeatedly? → Hash map, (2) Am I checking all pairs? → Can I use hash map or sort first?, (3) Is data sorted? → Binary search or two pointers, (4) Do I need all results? → Can I short-circuit?, (5) Am I recomputing? → Memoization, (6) Can I eliminate half? → Binary search or divide & conquer, (7) Is there a window/subarray? → Sliding window, (8) Do I need order? → Maybe hash set is enough. **Key:** Always ask "Can I do better?" before coding!

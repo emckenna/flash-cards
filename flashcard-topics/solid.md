@@ -1,6 +1,6 @@
 # SOLID Principles
 
-## Single Responsibility Principle
+## S Principle
 
 ### Card 1
 **Q:** What does S in SOLID stand for?
@@ -18,7 +18,7 @@
 **Q:** Why is SRP important?
 **A:** It makes code easier to understand, test, and maintain. Each class has a single, well-defined purpose, reducing complexity and making changes less risky.
 
-## Open-Closed Principle
+## O Principle
 
 ### Card 1
 **Q:** What does O in SOLID stand for?
@@ -36,7 +36,7 @@
 **Q:** What are the benefits of OCP?
 **A:** Reduces risk of breaking existing functionality when adding new features. Makes the codebase more stable and easier to extend over time.
 
-## Liskov Substitution Principle
+## L Principle
 
 ### Card 1
 **Q:** What does L in SOLID stand for?
@@ -54,7 +54,7 @@
 **Q:** How do you ensure LSP compliance?
 **A:** Make sure derived classes can replace base classes without changing the program's behavior. Don't strengthen preconditions or weaken postconditions in subclasses.
 
-## Interface Segregation Principle
+## I Principle
 
 ### Card 1
 **Q:** What does I in SOLID stand for?
@@ -72,7 +72,7 @@
 **Q:** What is the benefit of ISP?
 **A:** Creates more focused, cohesive interfaces that are easier to implement and understand. Reduces coupling and makes the system more flexible.
 
-## Dependency Inversion Principle
+## D Principle
 
 ### Card 1
 **Q:** What does D in SOLID stand for?

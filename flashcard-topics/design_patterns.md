@@ -8,7 +8,7 @@
 
 ### Card 2
 **Q:** When would you use the Singleton pattern?
-**A:** Use the Singleton pattern when you need only one instance of a class to be shared across the entire application. Common use cases include: database connections, logging services, configuration managers, and thread pools. It saves memory by reusing a single instance rather than creating multiple objects.
+**A:** Use the Singleton pattern when you need only one instance of a class to be shared across the entire application. Common use cases include database connections, logging services, configuration managers, and thread pools. It saves memory by reusing a single instance rather than creating multiple objects.
 
 ### Card 3
 **Q:** What is the Factory pattern?
